@@ -1,4 +1,17 @@
 .Player {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   gap: 8px;
+}
+
+.Player__buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.Player__score {
+  width: 3ch;
+  text-align: right;
 }
