@@ -2,7 +2,7 @@ import './Player.css'
 import PropTypes from 'prop-types'
 
 Player.propTypes = {
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
   score: PropTypes.number,
   onMinus: PropTypes.func.isRequired,
   onPlus: PropTypes.func.isRequired,
