@@ -1,14 +1,11 @@
 import { useState } from 'react'
 import './App.css'
-import Button from './Button'
-import Player from './Player'
-import PlayerForm from './PlayerForm'
+import Button from './components/Button'
+import Player from './components/Player'
+import PlayerForm from './components/PlayerForm'
 
 function App() {
-  const [players, setPlayers] = useState([
-    { name: 'John Doe', score: 20 },
-    { name: 'Jane Doe', score: 120 },
-  ])
+  const [players, setPlayers] = useState([])
 
   return (
     <div className="App">
@@ -18,8 +15,8 @@ function App() {
         {players.map((player, index) => (
           <li>
             <Player
-              onMinus={() => handleMinus(index)}
-              onPlus={() => handlePlus(index)}
+              onMinus={() => updateScore(index, -1)}
+              onPlus={() => updateScore(index, 1)}
               key={player.name}
               name={player.name}
               score={player.score}
@@ -43,20 +40,11 @@ function App() {
     setPlayers(players.map(player => ({ ...player, score: 0 })))
   }
 
-  function handleMinus(index) {
+  function updateScore(index, value) {
     const playerToUpdate = players[index]
     setPlayers(players => [
       ...players.slice(0, index),
-      { ...playerToUpdate, score: playerToUpdate.score - 1 },
-      ...players.slice(index + 1),
-    ])
-  }
-
-  function handlePlus(index) {
-    const playerToUpdate = players[index]
-    setPlayers(players => [
-      ...players.slice(0, index),
-      { ...playerToUpdate, score: playerToUpdate.score + 1 },
+      { ...playerToUpdate, score: playerToUpdate.score + value },
       ...players.slice(index + 1),
     ])
   }
