@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button changes with the prop isActive 1`] = `
+<button
+  class="Button"
+>
+  Click me
+</button>
+`;
+
+exports[`Button changes with the prop isActive 2`] = `
+<button
+  class="Button active"
+>
+  Click me
+</button>
+`;
