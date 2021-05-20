@@ -1,5 +1,6 @@
 import './Player.css'
 import PropTypes from 'prop-types'
+import Button from './Button'
 
 Player.propTypes = {
   name: PropTypes.string,
@@ -12,9 +13,9 @@ export default function Player({ name, score, onMinus, onPlus }) {
     <section className="Player">
       {name}{' '}
       <div className="Player__buttons">
-        <button onClick={onMinus}>-</button>
+        <Button onClick={onMinus}>-</Button>
         <output className="Player__score">{score}</output>
-        <button onClick={onPlus}>+</button>
+        <Button onClick={onPlus}>+</Button>
       </div>
     </section>
   )

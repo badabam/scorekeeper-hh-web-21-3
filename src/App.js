@@ -1,17 +1,18 @@
 import { useState } from 'react'
-import './App.css'
+import styled from 'styled-components/macro'
+import Navigation from './components/Navigation'
 import CreatePage from './pages/CreatePage'
 import GamePage from './pages/GamePage'
 import HistoryPage from './pages/HistoryPage'
 
-function App() {
+export default function App() {
   const [currentPageId, setCurrentPageId] = useState('create')
   const [history, setHistory] = useState([])
-  const [currentGame, setCurrentGame] = useState({})
-  const { players, nameOfGame } = currentGame
+  const [players, setPlayers] = useState([])
+  const [nameOfGame, setNameOfGame] = useState('')
 
   return (
-    <div className="App">
+    <AppGrid>
       {currentPageId === 'create' && (
         <CreatePage onNavigate={setCurrentPageId} onSubmit={handleSubmit} />
       )}
@@ -27,41 +28,49 @@ function App() {
       {currentPageId === 'history' && (
         <HistoryPage games={history} onNavigate={setCurrentPageId} />
       )}
-    </div>
+      {currentPageId !== 'game' && (
+        <Navigation
+          currentPageId={currentPageId}
+          onNavigate={setCurrentPageId}
+          pages={[
+            { title: 'Create', id: 'create' },
+            { title: 'History', id: 'history' },
+          ]}
+        />
+      )}
+    </AppGrid>
   )
 
   function handleEndGame() {
     setCurrentPageId('history')
-    setHistory([currentGame, ...history])
-    setCurrentGame({})
+    setHistory([{ players, nameOfGame }, ...history])
   }
 
-  function handleSubmit(game) {
-    setCurrentGame(game)
+  function handleSubmit({ players, nameOfGame }) {
+    setPlayers(players)
+    setNameOfGame(nameOfGame)
     setCurrentPageId('game')
   }
 
   function resetScores() {
-    setCurrentGame({
-      ...currentGame,
-      players: players.map(player => ({ ...player, score: 0 })),
-    })
+    setPlayers(players.map(player => ({ ...player, score: 0 })))
   }
 
   function updateScore(index, value) {
     const playerToUpdate = players[index]
 
-    const updatedGame = {
-      ...currentGame,
-      players: [
-        ...players.slice(0, index),
-        { ...playerToUpdate, score: playerToUpdate.score + value },
-        ...players.slice(index + 1),
-      ],
-    }
-
-    setCurrentGame(updatedGame)
+    setPlayers([
+      ...players.slice(0, index),
+      { ...playerToUpdate, score: playerToUpdate.score + value },
+      ...players.slice(index + 1),
+    ])
   }
 }
 
-export default App
+const AppGrid = styled.div`
+  display: grid;
+  grid-template-rows: auto min-content;
+  height: 100vh;
+  padding: 12px;
+  gap: 20px;
+`
