@@ -1,4 +1,4 @@
-import './Button.css'
+import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 
 Button.propTypes = {
@@ -7,10 +7,13 @@ Button.propTypes = {
   children: PropTypes.node,
 }
 
-export default function Button({ children, isActive, onClick }) {
-  return (
-    <button onClick={onClick} className={isActive ? 'Button active' : 'Button'}>
-      {children}
-    </button>
-  )
+export default function Button(props) {
+  return <ButtonStyled {...props} />
 }
+
+const ButtonStyled = styled.button`
+  padding: 12px;
+  border: none;
+  background: ${p => (p.isActive ? 'steelblue' : 'grey')};
+  border-radius: 8px;
+`
