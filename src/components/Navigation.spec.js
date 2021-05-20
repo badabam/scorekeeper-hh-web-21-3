@@ -6,19 +6,19 @@ describe('Navigation', () => {
   it('renders two buttons', async () => {
     render(
       <Navigation
-        currentPageId="play"
+        currentPageId="1"
         onNavigate={jest.fn()}
         pages={[
-          { title: 'Play', id: 'play' },
-          { title: 'History', id: 'history' },
+          { title: 'Foo', id: '1' },
+          { title: 'Bar', id: '2' },
         ]}
       />
     )
 
     const buttons = screen.getAllByRole('button')
     expect(buttons).toHaveLength(2)
-    expect(buttons[0]).toHaveTextContent('Play')
-    expect(buttons[1]).toHaveTextContent('History')
+    expect(buttons[0]).toHaveTextContent('Foo')
+    expect(buttons[1]).toHaveTextContent('Bar')
   })
 
   it('sends id "play" when clicking on "Play"', async () => {

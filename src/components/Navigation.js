@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Button from './Button'
 
 Navigation.propTypes = {
-  onNavigate: PropTypes.func,
+  onNavigate: PropTypes.func.isRequired,
   pages: PropTypes.arrayOf(
     PropTypes.shape({ title: PropTypes.string, id: PropTypes.string })
   ),
