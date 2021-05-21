@@ -10,7 +10,7 @@ CreatePage.propTypes = {
 export default function CreatePage({ onSubmit }) {
   return (
     <Grid>
-      <Form onSubmit={handleSubmit}>
+      <Form aria-label="Create game" onSubmit={handleSubmit}>
         <LabeledInput
           label="Name of game:"
           name="name"
