@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import './App.css'
-import Button from './components/Button'
-import Player from './components/Player'
-import PlayerForm from './components/PlayerForm'
+import Button from '../src/components/Button/Button'
+import Player from '../src/components/Player/Player'
+import PlayerForm from '../src/components/PlayerForm/PlayerForm'
 
 function App() {
   const [players, setPlayers] = useState([])

@@ -2,7 +2,7 @@ import React from 'react'
 import Navigation from './Navigation'
 
 export default {
-  title: Navigation,
+  title: 'Navigation',
   component: Navigation,
 }
 
@@ -24,6 +24,6 @@ ThreeButtons.args = {
   pages: [
     { title: 'Eins', id: 'one' },
     { title: 'Zwei', id: 'two' },
-    { title: 'Drei,', id: 'three' },
+    { title: 'Drei', id: 'three' },
   ],
 }
