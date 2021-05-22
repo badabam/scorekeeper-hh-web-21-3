@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
+import Header from '../components/Header'
 import HistoryEntry from '../components/HistoryEntry'
 
 HistoryPage.propTypes = {
@@ -16,6 +17,7 @@ HistoryPage.propTypes = {
 export default function HistoryPage({ games }) {
   return (
     <Grid>
+      <Header>History</Header>
       <div>
         {games.map((game, index) => (
           <HistoryEntry
@@ -30,9 +32,8 @@ export default function HistoryPage({ games }) {
 }
 
 const Grid = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: grid;
+  align-content: start;
   padding: 20px;
   gap: 20px;
 `

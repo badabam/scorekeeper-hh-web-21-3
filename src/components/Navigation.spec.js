@@ -1,46 +1,27 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import Navigation from './Navigation'
+import { MemoryRouter as Router } from 'react-router-dom'
+
+const noop = () => {}
 
 describe('Navigation', () => {
-  it('renders two buttons', async () => {
+  it('renders two NavLinks', async () => {
     render(
-      <Navigation
-        currentPageId="1"
-        onNavigate={jest.fn()}
-        pages={[
-          { title: 'Foo', id: '1' },
-          { title: 'Bar', id: '2' },
-        ]}
-      />
+      <Router>
+        <Navigation
+          currentPageId="1"
+          pages={[
+            { title: 'Foo', id: '1' },
+            { title: 'Bar', id: '2' },
+          ]}
+        />
+      </Router>
     )
 
-    const buttons = screen.getAllByRole('button')
-    expect(buttons).toHaveLength(2)
-    expect(buttons[0]).toHaveTextContent('Foo')
-    expect(buttons[1]).toHaveTextContent('Bar')
-  })
-
-  it('sends id "play" when clicking on "Play"', async () => {
-    const handleNavigate = jest.fn()
-
-    render(
-      <Navigation
-        currentPageId="play"
-        onNavigate={handleNavigate}
-        pages={[
-          { title: 'Play', id: 'play' },
-          { title: 'History', id: 'history' },
-        ]}
-      />
-    )
-
-    const playButton = screen.getByRole('button', { name: 'Play' })
-    userEvent.click(playButton)
-    expect(handleNavigate).toHaveBeenCalledWith('play')
-
-    const historyButton = screen.getByRole('button', { name: 'History' })
-    userEvent.click(historyButton)
-    expect(handleNavigate).toHaveBeenCalledWith('history')
+    const links = screen.getAllByRole('link')
+    expect(links).toHaveLength(2)
+    expect(links[0]).toHaveTextContent('Foo')
+    expect(links[1]).toHaveTextContent('Bar')
   })
 })

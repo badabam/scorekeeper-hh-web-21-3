@@ -1,4 +1,5 @@
 
+import { MemoryRouter as Router } from 'react-router-dom'
 import '../src/index.css'
 
 export const parameters = {
@@ -11,3 +12,8 @@ export const parameters = {
   },
   layout: 'fullscreen'
 }
+
+
+export const decorators = [
+  Story => <Router><Story /></Router>
+]
