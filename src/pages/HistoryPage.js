@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import { Redirect } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import Header from '../components/Header'
 import HistoryEntry from '../components/HistoryEntry'
@@ -15,7 +16,9 @@ HistoryPage.propTypes = {
 }
 
 export default function HistoryPage({ games }) {
-  return (
+  return games.length === 0 ? (
+    <Redirect to="/" />
+  ) : (
     <Grid>
       <Header>History</Header>
       <div>

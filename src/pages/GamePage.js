@@ -3,6 +3,7 @@ import styled from 'styled-components/macro'
 import Header from '../components/Header'
 import Player from '../components/Player'
 import Button from '../components/Button'
+import { Redirect } from 'react-router-dom'
 
 GamePage.propTypes = {
   nameOfGame: PropTypes.string,
@@ -21,7 +22,11 @@ export default function GamePage({
   onEndGame,
   onPlayerUpdate,
 }) {
-  return (
+  const noGameData = nameOfGame.length === 0 || players.length < 2
+
+  return noGameData ? (
+    <Redirect to="/" />
+  ) : (
     <Grid>
       <Header>{nameOfGame}</Header>
       {players.map(({ name, score }, index) => (
