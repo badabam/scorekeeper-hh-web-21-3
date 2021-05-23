@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
-import LabeledInput from '../components/LabeledInput'
+import LabeledInput from '../../components/LabeledInput/LabeledInput'
 import Button from '../../components/Button/Button'
 
 CreatePage.propTypes = {
