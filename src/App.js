@@ -4,6 +4,7 @@ import Navigation from '../src/components/Navigation/Navigation'
 import CreatePage from '../src/Pages/CreatePage/CreatePage'
 import GamePage from '../src/Pages/GamePage/GamePage'
 import HistoryPage from '../src/Pages/HistoryPage/HistoryPage'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 export default function App() {
   const [currentPageId, setCurrentPageId] = useState('create')
