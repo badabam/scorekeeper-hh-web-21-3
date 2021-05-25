@@ -35,4 +35,5 @@ const Grid = styled.section`
   justify-content: space-between;
   padding: 20px;
   gap: 20px;
+  background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
 `

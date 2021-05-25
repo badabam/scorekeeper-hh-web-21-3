@@ -16,5 +16,13 @@ const HeaderStyled = styled.h2`
   margin: 0;
   font-size: 1.2em;
   font-weight: 500;
-  background-image: linear-gradient(to top, #c79081 0%, #dfa579 100%);
+  background-image: linear-gradient(
+    to right,
+    #e4afcb 0%,
+    #b8cbb8 0%,
+    #b8cbb8 0%,
+    #e2c58b 30%,
+    #c2ce9c 64%,
+    #7edbdc 100%
+  );
 `

@@ -32,8 +32,7 @@ const Wrapper = styled.section`
     align-items: center;
   }
 
-  button:first-child {
-    background-color: hotpink;
+ 
   }
 
   output {

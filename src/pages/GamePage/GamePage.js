@@ -43,4 +43,5 @@ const Grid = styled.section`
   display: grid;
   align-content: start;
   gap: 20px;
+  background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
 `
