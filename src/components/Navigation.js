@@ -1,18 +1,24 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import Button from './Button'
+import { Link } from 'react-router-dom'
 
 Navigation.propTypes = {
-  onNavigate: PropTypes.func.isRequired,
   pages: PropTypes.arrayOf(
-    PropTypes.shape({ title: PropTypes.string, id: PropTypes.string })
+    PropTypes.shape({ name: PropTypes.string, path: PropTypes.string })
   ),
-  currentPageId: PropTypes.string,
 }
-export default function Navigation({ onNavigate, pages, currentPageId }) {
+
+export default function Navigation({ pages }) {
   return (
     <Nav>
-      {pages.map(({ title, id }) => (
+      {pages.map(({ name, path }) => (
+        <Link key={name} to={path}>
+          {name}
+        </Link>
+      ))}
+
+      {/* {pages.map(({ title, id }) => (
         <NavButton
           key={id}
           isActive={currentPageId === id}
@@ -20,7 +26,7 @@ export default function Navigation({ onNavigate, pages, currentPageId }) {
         >
           {title}
         </NavButton>
-      ))}
+      ))} */}
     </Nav>
   )
 }
