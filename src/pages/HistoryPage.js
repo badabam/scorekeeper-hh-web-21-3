@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types'
 import { Redirect } from 'react-router-dom'
 import styled from 'styled-components/macro'
+import LoginButton from '../auth/LoginButton'
+import LogoutButton from '../auth/LogoutButton'
 import Header from '../components/Header'
 import HistoryEntry from '../components/HistoryEntry'
 
@@ -21,6 +23,10 @@ export default function HistoryPage({ games }) {
   ) : (
     <Grid>
       <Header>History</Header>
+      <div>
+        <LoginButton />
+        <LogoutButton />
+      </div>
       <div>
         {games.map((game, index) => (
           <HistoryEntry
