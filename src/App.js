@@ -1,16 +1,27 @@
 import { useState } from 'react'
-import { Switch, Route, useHistory } from 'react-router-dom'
+import { Route, Switch, useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import Navigation from './components/Navigation'
 import CreatePage from './pages/CreatePage'
 import GamePage from './pages/GamePage'
 import HistoryPage from './pages/HistoryPage'
+import { useAuth0 } from '@auth0/auth0-react'
 
 export default function App() {
   const [previousGames, setPreviousGames] = useState([])
   const [players, setPlayers] = useState([])
   const [nameOfGame, setNameOfGame] = useState('')
   const history = useHistory()
+
+  const { isLoading, error } = useAuth0()
+
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
+
+  if (error) {
+    return <div>Oops... {error.message}</div>
+  }
 
   return (
     <AppGrid>
