@@ -13,10 +13,10 @@ export default function HistoryEntry({ nameOfGame, players }) {
       <Title>{nameOfGame}</Title>
       <ul>
         {players.map(player => (
-          <Player key={player.name}>
+          <PlayerScore data-testid="player-score" key={player.name}>
             <span>{player.name}</span>
             <span>{player.score}</span>
-          </Player>
+          </PlayerScore>
         ))}
       </ul>
     </Grid>
@@ -33,7 +33,7 @@ const Title = styled.h2`
   margin: 0.2em 0;
 `
 
-const Player = styled.li`
+const PlayerScore = styled.li`
   display: flex;
   justify-content: space-between;
 `
