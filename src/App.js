@@ -1,6 +1,6 @@
 import { useAuth0 } from '@auth0/auth0-react'
 import { useState } from 'react'
-import { Route, Switch, useHistory, Redirect } from 'react-router-dom'
+import { Route, Switch, useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import LoginButton from './auth/LoginButton'
 import LogoutButton from './auth/LogoutButton'

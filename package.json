@@ -1,6 +1,5 @@
 {
   "name": "scorekeeper",
-  "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@auth0/auth0-react": "1.5.0",
