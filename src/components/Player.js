@@ -10,8 +10,8 @@ Player.propTypes = {
 }
 export default function Player({ name, score, onMinus, onPlus }) {
   return (
-    <section className="Player">
-      {name}{' '}
+    <section className="Player" data-testid="player">
+      {name}
       <div className="Player__buttons">
         <Button onClick={onMinus}>-</Button>
         <output className="Player__score">{score}</output>

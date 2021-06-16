@@ -20,12 +20,15 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "cypress": "cypress open",
+    "cypress:ci": "cypress run"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "plugin:cypress/recommended"
     ],
     "overrides": [
       {
@@ -57,6 +60,9 @@
     "@storybook/node-logger": "6.2.9",
     "@storybook/preset-create-react-app": "3.1.7",
     "@storybook/react": "6.2.9",
+    "@testing-library/cypress": "7.0.6",
+    "cypress": "7.5.0",
+    "eslint-plugin-cypress": "2.11.3",
     "prop-types": "15.7.2"
   }
 }
