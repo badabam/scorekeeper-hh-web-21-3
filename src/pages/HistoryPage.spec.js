@@ -22,7 +22,9 @@ describe('HistoryPage', () => {
 
     render(<HistoryPage games={exampleGames} />)
 
-    const [firstHeading, secondHeading] = screen.getAllByRole('heading')
+    const [firstHeading, secondHeading] = screen.getAllByRole('heading', {
+      level: 2,
+    })
     expect(firstHeading).toHaveTextContent('Carcassonne')
     expect(secondHeading).toHaveTextContent('Gloomhaven')
 

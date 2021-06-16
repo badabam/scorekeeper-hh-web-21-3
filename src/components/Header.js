@@ -9,7 +9,7 @@ export default function Header({ children }) {
   return <HeaderStyled>{children}</HeaderStyled>
 }
 
-const HeaderStyled = styled.h2`
+const HeaderStyled = styled.h1`
   display: grid;
   place-items: center;
   padding: 8px;
